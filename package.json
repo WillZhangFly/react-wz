@@ -29,5 +29,12 @@
     "webpack": "^5.46.0",
     "webpack-cli": "^4.7.2",
     "webpack-dev-server": "^3.11.2"
+  },
+  "dependencies": {
+    "md5": "^2.3.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-redux": "^7.2.4",
+    "redux": "^4.1.0"
   }
 }
