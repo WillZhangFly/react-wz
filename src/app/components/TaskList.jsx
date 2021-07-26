@@ -1,0 +1,31 @@
+import React from 'react';
+import { connect } from "react-redux";
+
+export const TaskList= ({tasks , name}) => {
+    console.log("tasks" , tasks);
+    return (
+        <div className="card p-2 m-2">
+                    <h2>
+            {name}
+        </h2>
+        <div>
+            {tasks.map(task =>(<div>{task.name}</div>))}
+        </div>
+        </div>
+
+    )
+}
+
+const mapStateToProps = (state , ownProps) => {
+    let groupID = ownProps.id;
+    console.log("tasks22222:" , state.tasks.filter(task => task.group === groupID));
+    return {
+        name:ownProps.name,
+        id: groupID,
+        tasks: state.tasks.filter(task => task.group === groupID)
+    }
+}
+
+export const ConnectedTaskList = connect(mapStateToProps)(TaskList);
+
+
