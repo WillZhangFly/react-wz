@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from "react-redux";
 
 export const TaskList= ({tasks , name}) => {
-    console.log("tasks" , tasks);
     return (
         <div className="card p-2 m-2">
                     <h2>
@@ -18,7 +17,6 @@ export const TaskList= ({tasks , name}) => {
 
 const mapStateToProps = (state , ownProps) => {
     let groupID = ownProps.id;
-    console.log("tasks22222:" , state.tasks.filter(task => task.group === groupID));
     return {
         name:ownProps.name,
         id: groupID,
