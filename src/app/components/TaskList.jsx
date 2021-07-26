@@ -7,7 +7,7 @@ export const TaskList = ({ tasks, name }) => {
       <h2>{name}</h2>
       <div>
         {tasks.map((task) => (
-          <div>{task.name}</div>
+          <div key={task.id}>{task.name}</div>
         ))}
       </div>
     </div>
