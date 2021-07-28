@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack",
     "dev": "webpack serve --open",
+    "test-connect": "babel-node src/server/connect-db",
     "format": "prettier \"./*.{js,jsx,ts,tsx,json,md}\" \"./**/*.{js,jsx,ts,tsx,json,md}\" --write"
   },
   "repository": {
@@ -27,6 +28,7 @@
     "@babel/preset-react": "^7.14.5",
     "@babel/register": "^7.14.5",
     "babel-loader": "^8.2.2",
+    "mongodb": "^4.0.1",
     "webpack": "^5.46.0",
     "webpack-cli": "^4.7.2",
     "webpack-dev-server": "^3.11.2"
