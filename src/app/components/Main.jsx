@@ -5,6 +5,7 @@ import { store } from "../store";
 import { Router, Route, Switch } from "react-router-dom";
 import { history } from "../store/history";
 import { ConnectedNavigation } from "./Navigation";
+import { ConnectTaskDetail } from "./TaskDetail";
 
 export default function Main() {
   return (
@@ -17,6 +18,11 @@ export default function Main() {
               exact
               path="/dashboard"
               render={() => <ConnectedDashboard />}
+            />
+            <Route
+              exact
+              path="/task/:id"
+              render={({ match }) => <ConnectTaskDetail match={match} />}
             />
           </Switch>
         </div>
