@@ -1,13 +1,25 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { setTaskCompletion } from "../store/mutations";
+import {
+  setTaskCompletion,
+  setTaskGroup,
+  setTaskName,
+} from "../store/mutations";
 
-function TaskDetail({ groups, task, isComplete, setTaskCompletion, id }) {
+function TaskDetail({
+  groups,
+  task,
+  isComplete,
+  setTaskCompletion,
+  id,
+  setTaskName,
+  setTaskGroup,
+}) {
   return (
     <div>
       <div>
-        <input value={task.name} />
+        <input onChange={setTaskName} value={task.name} />
       </div>
       <div>
         <button onClick={() => setTaskCompletion(id, !isComplete)}>
@@ -15,12 +27,16 @@ function TaskDetail({ groups, task, isComplete, setTaskCompletion, id }) {
         </button>
       </div>
       <div>
-        <select className="form-control">
-          {groups.map((group) => {
+        <select
+          className="form-control"
+          onChange={setTaskGroup}
+          value={task.group}
+        >
+          {groups.map((group) => (
             <option key={group.id} value={group.id}>
               {group.name}
-            </option>;
-          })}
+            </option>
+          ))}
         </select>
       </div>
       <div>
@@ -50,6 +66,12 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     setTaskCompletion(id, isComplete) {
       dispatch(setTaskCompletion(id, isComplete));
+    },
+    setTaskGroup(e) {
+      dispatch(setTaskGroup(id, e.target.value));
+    },
+    setTaskName(e) {
+      dispatch(setTaskName(id, e.target.value));
     },
   };
 };
