@@ -12,35 +12,35 @@ export function* taskCreationSaga() {
     const taskID = uuid();
     yield put(mutations.createTask(taskID, groupID, ownerID));
 
-    const {res} = yield axios.post(url + `/task/new`, {
-      task:{
-        id:taskID,
-        group:groupID,
-        owner:ownerID,
-        isComplete:false,
-        name:"New Task"
-      }
-    })
+    const { res } = yield axios.post(url + `/task/new`, {
+      task: {
+        id: taskID,
+        group: groupID,
+        owner: ownerID,
+        isComplete: false,
+        name: "New Task",
+      },
+    });
 
-    console.log("Got response" , res);
+    console.log("Got response", res);
   }
 }
 
-export function* taskModificationSaga(){
-  while(true){
+export function* taskModificationSaga() {
+  while (true) {
     const task = yield take([
       mutations.SET_TASK_GROUP,
       mutations.SET_TASK_NAME,
-      mutations.SET_TASK_COMPLETE
+      mutations.SET_TASK_COMPLETE,
     ]);
 
     axios.post(url + `/task/update`, {
-      task:{
-        id:task.taskID,
-        group:task.groupID,
+      task: {
+        id: task.taskID,
+        group: task.groupID,
         name: task.name,
-        isComplete:task.isComplete
-      }
-    })
+        isComplete: task.isComplete,
+      },
+    });
   }
 }

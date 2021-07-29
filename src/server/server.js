@@ -8,10 +8,7 @@ let app = express();
 
 app.listen(port, console.log("Server is listening on port ", port));
 
-app.use(
-  cors(),
-  bodyParser()
-);
+app.use(cors(), bodyParser());
 
 export const addNewTask = async (task) => {
   let db = await connectDB();
