@@ -10,12 +10,7 @@ app.listen(port, console.log("Server is listening on port ", port));
 
 app.use(
   cors(),
-  bodyParser.urlencoded(
-    {
-      extended: true,
-    },
-    bodyParser.json()
-  )
+  bodyParser()
 );
 
 export const addNewTask = async (task) => {
