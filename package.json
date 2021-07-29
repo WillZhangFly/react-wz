@@ -9,6 +9,7 @@
     "dev": "webpack serve --open",
     "initialize": "babel-node src/server/initialize-db",
     "server": "babel-node src/server/server",
+    "server-test": "babel-node src/server/server.spec",
     "format": "prettier \"./*.{js,jsx,ts,tsx,json,md}\" \"./**/*.{js,jsx,ts,tsx,json,md}\" --write"
   },
   "repository": {
