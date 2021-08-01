@@ -2,6 +2,9 @@ let express = require("express");
 let cors = require("cors");
 let bodyParser = require("body-parser");
 const { connectDB } = require("./connect-db");
+const { initializeDB } = require("./initialize-db");
+
+initializeDB();
 
 let port = 5555;
 let app = express();
