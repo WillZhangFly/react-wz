@@ -51,7 +51,7 @@ export function* userAuthenticationSaga() {
       mutations.REQUEST_AUTHENTICATE_USER
     );
     try {
-      const { data } = axios.post(url + "/authenticate", {
+      const { data } = yield axios.post(url + "/authenticate", {
         username,
         password,
       });

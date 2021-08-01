@@ -1,8 +1,8 @@
 let express = require("express");
 let cors = require("cors");
-let bodyParser = require("body-parser");
 const { connectDB } = require("./connect-db");
 const { initializeDB } = require("./initialize-db");
+const { authenticationRoute } = require("./authenticate");
 
 initializeDB();
 
@@ -11,7 +11,9 @@ let app = express();
 
 app.listen(port, console.log("Server is listening on port ", port));
 
-app.use(cors(), bodyParser());
+app.use(cors(), express.json(), express.urlencoded());
+
+authenticationRoute(app);
 
 export const addNewTask = async (task) => {
   let db = await connectDB();
