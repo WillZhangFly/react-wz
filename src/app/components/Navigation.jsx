@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Navigation = () => (
   <div className="header">
     <Link to="/dashboard">
-      <h1>My application</h1>
+      <h1>Developer Task Book</h1>
     </Link>
   </div>
 );

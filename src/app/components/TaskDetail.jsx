@@ -17,7 +17,7 @@ function TaskDetail({
   setTaskGroup,
 }) {
   return (
-    <div>
+    <div className="card p-3 col-6">
       <div>
         <input onChange={setTaskName} value={task.name} />
       </div>
@@ -27,6 +27,7 @@ function TaskDetail({
         </button>
       </div>
       <div>
+        <span className="mr-4">Change Group</span>
         <select
           className="form-control"
           onChange={setTaskGroup}
