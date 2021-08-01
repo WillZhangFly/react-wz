@@ -2,6 +2,7 @@ import * as mutations from "./mutations";
 import { put, take } from "redux-saga/effects";
 import { v4 as uuid } from "uuid";
 import axios from "axios";
+import { history } from "./history";
 
 const url = "http://localhost:5555";
 
@@ -58,8 +59,11 @@ export function* userAuthenticationSaga() {
       if (!data) {
         throw new Error();
       }
+
+      yield put(mutations.setState(data.state));
+      yield put(mutations.processAuthenticateUser(mutations.AUTHENTICATED));
+      history.push("/dashboard");
     } catch (e) {
-      console.log("Can not authenticate: ", e);
       yield put(mutations.processAuthenticateUser(mutations.NOT_AUTHENTICATED));
     }
   }

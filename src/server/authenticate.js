@@ -25,7 +25,6 @@ const assembleUserState = async (user) => {
 
 export const authenticationRoute = (app) => {
   app.post("/authenticate", async (req, res) => {
-    console.log("req body", req.body);
     const { username, password } = req.body;
     const db = await connectDB();
     let collection = db.collection("users");
