@@ -19,15 +19,21 @@ function TaskDetail({
   return (
     <div className="card p-3 col-6">
       <div>
-        <input onChange={setTaskName} value={task.name} />
+        <input
+          onChange={setTaskName}
+          value={task.name}
+          className="form-control form-control-lg"
+        />
       </div>
       <div>
-        <button onClick={() => setTaskCompletion(id, !isComplete)}>
+        <button
+          className="btn btn-primary mt-2"
+          onClick={() => setTaskCompletion(id, !isComplete)}
+        >
           {isComplete ? "Reopen" : "Complete"}
         </button>
       </div>
-      <div>
-        <span className="mr-4">Change Group</span>
+      <div className="mt-3">
         <select
           className="form-control"
           onChange={setTaskGroup}
