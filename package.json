@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --env prod",
+    "build": "webpack --mode prod",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm install babel-cli -S && npm run server",
+    "start": "npm run server",
     "dev": "webpack serve --open",
     "initialize": "babel-node src/server/initialize-db",
     "server": "babel-node src/server/server",
@@ -26,6 +26,11 @@
   },
   "homepage": "https://github.com/WillZhangFly/react-wz#readme",
   "devDependencies": {
+    "@babel/preset-env": "^7.14.8",
+    "@babel/core": "^7.14.8",
+    "@babel/node": "^7.14.7",
+    "@babel/preset-react": "^7.14.5",
+    "@babel/register": "^7.14.5",
     "babel-loader": "^8.2.2",
     "concurrently": "^6.2.0",
     "cors": "^2.8.5",
@@ -36,11 +41,6 @@
     "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
-    "@babel/preset-env": "^7.14.8",
-    "@babel/core": "^7.14.8",
-    "@babel/node": "^7.14.7",
-    "@babel/preset-react": "^7.14.5",
-    "@babel/register": "^7.14.5",
     "axios": "^0.21.1",
     "history": "^4.10.1",
     "md5": "^2.3.0",
