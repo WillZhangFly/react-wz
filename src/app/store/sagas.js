@@ -4,7 +4,7 @@ import { v4 as uuid } from "uuid";
 import axios from "axios";
 import { history } from "./history";
 
-const url = "http://localhost:5555";
+const url = process.env.NODE_ENV == "product" ? ""  : "http://localhost:5555";
 
 export function* taskCreationSaga() {
   while (true) {
