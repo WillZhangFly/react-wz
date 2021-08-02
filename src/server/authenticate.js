@@ -12,8 +12,10 @@ const assembleUserState = async (user) => {
     .collection("groups")
     .find({ owner: user.id })
     .toArray();
+  const users = await db.collection("users").find().toArray();
 
   return {
+    users,
     tasks,
     groups,
     session: {

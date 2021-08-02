@@ -68,3 +68,24 @@ export function* userAuthenticationSaga() {
     }
   }
 }
+
+export function* userSignUpSaga() {
+  while (true) {
+    const { username, password } = yield take(mutations.REQUEST_SIGNUP_USER);
+    try {
+      const { data } = yield axios.post(url + "/signup", {
+        username,
+        password,
+      });
+
+      if (!data) {
+        throw new Error();
+      }
+      yield put(mutations.setState(data.state));
+      yield put(mutations.processAuthenticateUser(mutations.AUTHENTICATED));
+      history.push("/dashboard");
+    } catch (e) {
+      yield put(mutations.processAuthenticateUser(mutations.NOT_AUTHENTICATED));
+    }
+  }
+}

@@ -7,6 +7,7 @@ import { Router, Route, Switch } from "react-router-dom";
 import { history } from "../store/history";
 import { ConnectedNavigation } from "./Navigation";
 import { ConnectTaskDetail } from "./TaskDetail";
+import { ConnectedSignUp } from "./SignUp";
 import { Redirect } from "react-router";
 
 const RouteGuard =
@@ -32,6 +33,7 @@ export default function Main() {
               path="/dashboard"
               render={RouteGuard(ConnectedDashboard)}
             />
+            <Route exact path="/new" render={() => <ConnectedSignUp />} />
             <Route
               exact
               path="/task/:id"

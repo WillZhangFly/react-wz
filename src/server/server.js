@@ -3,6 +3,7 @@ let cors = require("cors");
 const { connectDB } = require("./connect-db");
 const { initializeDB } = require("./initialize-db");
 const { authenticationRoute } = require("./authenticate");
+const { signupRoute } = require("./signup");
 const path = require("path");
 
 initializeDB();
@@ -15,6 +16,8 @@ app.listen(port, console.log("Server is listening on port ", port));
 app.use(cors(), express.json(), express.urlencoded());
 
 authenticationRoute(app);
+
+signupRoute(app);
 
 if (process.env.NODE_ENV == "production") {
   app.use(express.static(path.resolve(__dirname, "../../dist")));

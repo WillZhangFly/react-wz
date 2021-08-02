@@ -1,55 +1,58 @@
 import React from "react";
 import { connect } from "react-redux";
 import * as mutations from "../store/mutations";
-import { Link } from "react-router-dom";
 
-const Login = ({ authenticateUser, authenticated }) => {
+const SignUp = ({ signUpUser, authenticated }) => {
   return (
     <div className="card p-3 col-6">
-      <h2>Please Login</h2>
-      <form onSubmit={authenticateUser}>
+      <h2>Please sign up:</h2>
+      <form onSubmit={signUpUser}>
+        <label htmlFor="signUpUserName">Username</label>
         <input
           type="text"
           placeholder="username"
           name="username"
-          defaultValue="Developer"
-          className="form-control"
+          id="signUpUserName"
+          className="form-control is-valid"
+          required
         />
+        <label className="mt-3" htmlFor="signUpPassword">
+          Password
+        </label>
         <input
           type="password"
           placeholder="password"
           name="password"
+          id="signUpPassword"
           defaultValue=""
-          className="form-control mt-2"
+          className="form-control"
+          required
         />
         {authenticated === mutations.NOT_AUTHENTICATED ? (
-          <p>Login incorrect</p>
+          <p>User already existed, try another user name!</p>
         ) : null}
-        <div className="mt-2 mb-1">
-          <Link to="/new">Do not have an account with us?</Link>
-        </div>
         <button type="submit" className="form-control mt-2 btn btn-primary">
-          Login
+          Sign Up
         </button>
       </form>
     </div>
   );
 };
 
-const mapStateToProps = ({ session }) => ({
-  authenticated: session.authenticated,
-});
+const mapStateToProps = (state) => {
+  return { authenticated: state.session.authenticated };
+};
 
 const mapDispatchToProps = (dispatch) => ({
-  authenticateUser(e) {
+  signUpUser(e) {
     e.preventDefault();
     let username = e.target["username"].value;
     let password = e.target["password"].value;
-    dispatch(mutations.requestAuthenticateUser(username, password));
+    dispatch(mutations.requestSignUpUser(username, password));
   },
 });
 
-export const ConnectedLogin = connect(
+export const ConnectedSignUp = connect(
   mapStateToProps,
   mapDispatchToProps
-)(Login);
+)(SignUp);

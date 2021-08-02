@@ -76,7 +76,11 @@ export const reducers = combineReducers({
     }
     return groups;
   },
-  users(users = defaultState.users, action) {
+  users(users = [], action) {
+    switch (action.type) {
+      case mutations.SET_STATE:
+        return action.state.users;
+    }
     return users;
   },
 });
