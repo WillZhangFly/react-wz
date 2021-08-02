@@ -15,7 +15,7 @@ First, install the programs required to run the application:
 Next, clone this repository and install dependencies:
 
 ```
-git clone git@github.com:danielstern/express-react-fullstack.git
+https://github.com/WillZhangFly/react-wz.git
 ```
 
 ```
