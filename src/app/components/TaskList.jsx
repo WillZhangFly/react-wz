@@ -10,7 +10,7 @@ export const TaskList = ({ tasks, name, id, createNewTask }) => {
       <div>
         {tasks.map((task) => (
           <Link key={task.id} to={`/task/${task.id}`}>
-            <div>{task.name}</div>
+            <div className="card p-2 mt-2">{task.name}</div>
           </Link>
         ))}
       </div>
