@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
-const Navigation = () => (
+export const Navigation = () => (
   <div className="header">
     <Link to="/dashboard">
       <h1>Developer Task Book</h1>

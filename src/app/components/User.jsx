@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-const User = ({ name }) => {
+export const User = ({ name }) => {
   return (
     <>
       {{ name } && (
