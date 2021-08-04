@@ -7,7 +7,7 @@ import {
   setTaskName,
 } from "../store/mutations";
 
-function TaskDetail({
+export function TaskDetail({
   groups,
   task,
   isComplete,
