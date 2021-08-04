@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { User } from "../User";
 
 describe("User component ", () => {
-  it("User component renders without crashing", () => {
-    ReactDOM.render(<User name="abc" />, document.createElement("div"));
+  it("renders without crashing", () => {
+    ReactDOM.render(<User />, document.createElement("div"));
   });
 });

@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import * as mutations from "../store/mutations";
 import { Link } from "react-router-dom";
 
-const Login = ({ authenticateUser, authenticated }) => {
+export const Login = ({ authenticateUser, authenticated }) => {
   return (
     <div className="card p-3 col-6">
       <h2>Please Login</h2>

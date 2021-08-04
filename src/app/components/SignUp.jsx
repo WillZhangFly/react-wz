@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import * as mutations from "../store/mutations";
 
-const SignUp = ({ signUpUser, authenticated }) => {
+export const SignUp = ({ signUpUser, authenticated }) => {
   return (
     <div className="card p-3 col-6">
       <h2>Please sign up:</h2>
